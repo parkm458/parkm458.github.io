@@ -1,0 +1,24 @@
+#left-column {
+    background-color: #001f3f;
+    float: left;
+}
+
+#right-column {
+  background-color: #FF4136;
+  float: right;
+}
+
+body {
+  font-family:"arial";
+  background-color: #DDDDDD;
+  color: #DDDDDD;
+}
+
+.column {
+  width: 44%;
+  padding: 3%;
+}
+
+li {
+  margin-top: 15px;
+}
