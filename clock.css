@@ -1,0 +1,132 @@
+$frame-color: black;
+$hours-color: black;
+$minutes-color: black;
+$seconds-color: black;
+
+$border-width: 4px;
+
+$hours-hand-width: 12%;
+$minutes-hand-width: 8%;
+$seconds-hand-width: 4%;
+
+$center-circle-width: 4%;
+
+$clock-width: 400px;
+
+@mixin border-hole ($color: black, $width: 1px, $size: 10%) {
+  background-image: linear-gradient($color $width, transparent 0),
+    linear-gradient($color $width, transparent 0),
+    linear-gradient(to left, $color $width, transparent 0),
+    linear-gradient(to right, $color $width, transparent 0),
+    linear-gradient(to top, $color $width, transparent 0);
+
+  background-position: 0 0, 100% 0, 0 0;
+  background-size: $size, $size, 100%, 100%, 100%;
+}
+
+html,
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-frame {
+  box-shadow: 0 0 0 $border-width $frame-color inset;
+  width: $clock-width;
+  height: $clock-width;
+  position: relative;
+}
+
+.hours,
+.minutes,
+.seconds {
+  width: $clock-width;
+  height: $clock-width;
+  position: absolute;
+  top: 0;
+  left: 0;
+  .hand {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    .number {
+      font-size: 10px;
+      display: inline-block;
+      text-align: center;
+      font-family: sans-serif;
+    }
+  }
+}
+
+.hours {
+  @include border-hole($hours-color, $border-width, 50% - $hours-hand-width / 2);
+  background-repeat: no-repeat;
+  .hours-hand {
+    width: $hours-hand-width;
+    height: 50% + $center-circle-width * 1.5;
+    border: $border-width solid $hours-color;
+    border-top: none;
+    border-radius: 0 0 35px 35px;
+    .number {
+      margin-top: 30px;
+    }
+  }
+}
+
+.minutes {
+  @include border-hole($minutes-color, $border-width, 50% - $minutes-hand-width / 2);
+  background-repeat: no-repeat;
+  .minutes-hand {
+    width: $minutes-hand-width;
+    height: 50% + $center-circle-width;
+    border: $border-width solid $minutes-color;
+    border-top: none;
+    border-radius: 0 0 30px 30px;
+    .number {
+      margin-top: 20px;
+    }
+  }
+}
+
+.seconds {
+  @include border-hole($seconds-color, $border-width, 50% - $seconds-hand-width / 2);
+  background-repeat: no-repeat;
+  .seconds-hand {
+    width: $seconds-hand-width;
+    height: 50% + $center-circle-width / 2;
+    border: $border-width solid $seconds-color;
+    border-top: none;
+    border-radius: 0 0 25px 25px;
+    .number {
+      margin-top: 10px;
+    }
+  }
+}
+
+.center-dot {
+  width: $center-circle-width;
+  height: $center-circle-width;
+  border-radius: 50%;
+  background-color: $frame-color;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.credits {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-family: sans-serif;
+  font-size: 13px;
+}
