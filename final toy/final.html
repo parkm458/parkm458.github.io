@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Scissors Paoer</title>
+	<meta charset="utf-8" />
+
+</head>
+<body>
+  <h1>
+    <font color="#443d44">Rock! Scissors! Paper!</font>
+  </h1>
+
+    <style>
+    body {
+        background-color: #d5d5d5;
+        font-family:sans-serif;
+        text-align: center;
+        font-size: 40px;
+    }
+    </style>
+    <script>
+
+        var com = 0;
+        var player = 0;
+
+        function random(){
+            com = Math.floor(Math.random() * 3);
+        }
+
+        random();
+
+        function scissors() {
+            player = 0;
+            game();
+        }
+        function rock() {
+            player = 1;
+            game();
+        }
+        function paper() {
+            player = 2;
+            game();
+        }
+
+        function game() {
+            if (player == com) {
+                alert('You won');
+
+            } else if ((player + 1) % 3 == com) {
+                alert('You lost');
+            } else {
+                alert('We tied');
+            }
+        random();
+        }
+
+        function result() {
+
+        }
+    </script>
+
+
+    <img src="rock.png" alt="Rock" style="position: absolute; left:100px; top:200px;">
+    <img src="scissors.png" alt="Scissors" style="position: absolute; left:600px; top:200px;">
+    <img src="paper.png" alt="Paper" style="position: absolute; left:1100px; top:200px;">
+
+    <form>
+        <input type="button" onclick="rock()" value="Rock" style="position: absolute; left:270px; top:650px; border-color:transparent; font-size:25pt; background-color: transparent;" />
+        <input type="button" onclick="scissors()" value="Scissors" style="position: absolute; left:760px; top:650px; border-color:transparent; font-size:25pt; background-color: transparent;" />
+        <input type="button" onclick="paper()" value="Paper" style="position: absolute; left:1280px; top:650px; border-color:transparent; font-size:25pt; background-color: transparent;" />
+    </form>
+    </script>
+
+</body>
+</html>
