@@ -18,9 +18,26 @@
         text-align: center;
         font-size: 40px;
     }
+    #follower {
+      width: 100px;
+      height: 100px;
+    }
+
+    #box {
+      position: absolute;
+      animation: infinite;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
     </style>
     <script>
+      var follower =  document.querySelector("hands.png")
+      window.addEventListener("mousemove", onMouseMove)
 
+      function onMouseMove(evt) {
+      box.style.left = evt.x + 5 + "px"
+      box.style.top = evt.x + 5 + "px"
+      }
         var com = 0;
         var player = 0;
 
@@ -71,6 +88,8 @@
         <input type="button" onclick="paper()" value="Paper" style="position: absolute; left:1280px; top:650px; border-color:transparent; font-size:25pt; background-color: transparent;" />
     </form>
     </script>
-
+    <div id="box">
+      <img id="follower" src="hands.png">
+    </div>
 </body>
 </html>
